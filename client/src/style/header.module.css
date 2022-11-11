@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400;500;600&display=swap');
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 6px;
+  max-width: 100vh;
+  margin: 0 20px;
+}
+
+.headerTitle {
+    font-family: 'Red Hat Mono', monospace;
+    font-size: 5rem;
+    font-weight: bolder;
+    margin: 0;
+    padding: 0;
+}

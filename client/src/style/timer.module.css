@@ -1,0 +1,12 @@
+.showCounter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #000;
+}
+
+.danger {
+    color: #ff0000;
+}
