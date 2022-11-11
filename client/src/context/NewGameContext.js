@@ -1,45 +1,111 @@
-import { createContext, useReducer } from "react"
+import { createContext, useContext, useReducer } from "react"
+import { gameReducer, initialState } from "./gameReducer"
 
-export const GameContext = createContext()
+export const GameContext = createContext(initialState)
 
-export const GAME_ACTIONS = {
-    SHUFFLE_DECK: 'shuffle-deck',
-    SET_BOARD: 'set-board',
-    SELECT_CARD: 'select-card',
-    CHECK_FOR_SET: 'check-for-set',
-    ADD_THREE_CARDS: 'add-three-cards'
-}
+export const GameProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(gameReducer, initialState)
 
-export const gameReducer = (type, action) => {
-    const {type, payload} = action
-    switch (type) {
-        case GAME_ACTIONS.SHUFFLE_DECK: {
-            return payload // shuffle the deck payload when using dispatch
-        }
-        case GAME_ACTIONS.SET_BOARD: {
-            return payload //
-        }
-        case GAME_ACTIONS.SELECT_CARD: {
-            return payload //
-        }
-        case GAME_ACTIONS.CHECK_FOR_SET: {
-            return payload //
-        }
-        case GAME_ACTIONS.ADD_THREE_CARDS: {
-            return payload //
-        }
-        default: {
-            throw new Error('Not a type in reducer.') //
-        }
+    const toggleStart = () => {
+        const toggle = !state.gameStart
+        dispatch({
+            type: 'START_GAME',
+            payload: {
+                gameStart: toggle
+            }
+        })
     }
-}
 
-export const GameContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(gameReducer, {})
+    const loadDeck = (cards) => {
+        const filledDeck = [...state.deck, cards]
+        dispatch({
+            type: 'LOAD_DECK',
+            payload: {
+                deck: filledDeck
+            }
+        })
+    }
 
+    // shuffle algorithm
+    const shuffle = (array) => {
+        let currentIndex = array.length, randomIndex
+        // while there remain elements to shuffle.
+        while (currentIndex !== 0) {
+            // pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex)
+            currentIndex--
+            // swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
+        }
+        return array
+    }
+    const shuffleDeck = () => {
+        const shuffledDeck = shuffle(state.deck)
+        dispatch({
+            type: 'SHUFFLE_DECK',
+            payload: {
+                deck: shuffledDeck
+            }
+        })
+    }
+
+    const setBoard = () => {
+        const newDeck = state.deck
+        const updatedBoard = newDeck.splice(0, 12)
+        dispatch({
+            type: 'SET_BOARD',
+            payload: {
+                deck: newDeck,
+                boardCards: updatedBoard
+            }
+        })
+    }
+
+    const selectCard = (card, action) => {
+        const newSelected = state.selectedCards
+        if (action === 'ADD') {
+            newSelected.push(card)
+        } else if (action === 'REMOVE') {
+            newSelected.filter(p => card._id !== p._id)
+        } else {
+            throw new Error(`No action for ${action} in selecting cards.`)
+        }
+        dispatch({
+            type: 'SELECT_CARD',
+            payload: {
+                selectedCards: newSelected
+            }
+        })
+    }
+
+
+    
+    const gameState = {
+        deck: state.deck,
+        boardCards: state.boardCards,
+        selectedCards: state.selectedCards,
+        score: state.score,
+        toggleStart,
+        loadDeck,
+        setBoard,
+        shuffleDeck,
+        selectCard
+    }
     return (
-        <GameContextProvider values={{ state, dispatch }}>
-            { children }
-        </GameContextProvider>
+        <GameContext.Provider value={gameState}>
+            {children}
+        </GameContext.Provider>
     )
 }
+
+
+// dunno why we do this? rewatch video - https://www.youtube.com/watch?v=awGFsGc9oCM
+const useGame = () => {
+    const context = useContext(GameContext)
+    if (context === undefined){
+        throw new Error('useGame must be used within game context')
+    }
+    return context
+}
+
+export default useGame

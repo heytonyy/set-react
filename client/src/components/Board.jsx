@@ -9,11 +9,11 @@ const Board = ({ currentCards, setBoardCards, setScore, score }) => {
     const [selectedCards, setSelectedCards] = useState([])
     const [message, setMessage] = useState(null)
 
-    // returns a string of the prop that didnt pass the set prop test, returns null if passed
-    const checkPropsForSet = (cards, prop) => {
+    // returns a string of the prop(s) that dont pass the set test, returns false if passed
+    const checkForSet = (cards, prop) => {
         const propArr = [cards[0][prop], cards[1][prop], cards[2][prop]]
         if (prop === 'number') {
-            const numSum = propArr.reduce((psum, el) => psum + el, 0)
+            const numSum = propArr.reduce((runningSum, el) => runningSum + el, 0)
             // validator --> sets only have a numSum of 3, 6 or 9
             if (!(numSum === 3 || numSum === 6 || numSum === 9)) {
                 return ` ${prop}`
@@ -28,7 +28,7 @@ const Board = ({ currentCards, setBoardCards, setScore, score }) => {
                 return ` ${prop}`
             }
         }
-        return null
+        return false
     }
 
     // check for set ever times selectedCards updates (useEffect)
@@ -37,17 +37,17 @@ const Board = ({ currentCards, setBoardCards, setScore, score }) => {
             // array to set to message
             const failed = []
             // check for failed set properties
-            if (checkPropsForSet(selectedCards, 'number')) {
-                failed.push(checkPropsForSet(selectedCards, 'number'))
+            if (checkForSet(selectedCards, 'number')) {
+                failed.push(checkForSet(selectedCards, 'number'))
             }
-            if (checkPropsForSet(selectedCards, 'color')) {
-                failed.push(checkPropsForSet(selectedCards, 'color'))
+            if (checkForSet(selectedCards, 'color')) {
+                failed.push(checkForSet(selectedCards, 'color'))
             }
-            if (checkPropsForSet(selectedCards, 'fill')) {
-                failed.push(checkPropsForSet(selectedCards, 'fill'))
+            if (checkForSet(selectedCards, 'fill')) {
+                failed.push(checkForSet(selectedCards, 'fill'))
             }
-            if (checkPropsForSet(selectedCards, 'shape')) {
-                failed.push(checkPropsForSet(selectedCards, 'shape'))
+            if (checkForSet(selectedCards, 'shape')) {
+                failed.push(checkForSet(selectedCards, 'shape'))
             }
             // zero fails means it was a set!
             if (failed.length === 0) {
