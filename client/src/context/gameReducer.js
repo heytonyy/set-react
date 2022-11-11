@@ -1,37 +1,39 @@
 export const initialState = {
     gameStart: false,
+    gameOver: false,
     deck: [],
     boardCards: [],
     selectedCards: [],
-    score: 0
+    score: 0,
+    message: ''
 }
 
 export const gameReducer = (state, action) => {
     const { type, payload } = action
     switch (type) {
-        case 'START_GAME': {
-            console.log('START_GAME', payload)
+        case 'TOGGLE_START': {
+            // console.log('TOGGLE_START', payload)
             return {
                 ...state,
                 gameStart: payload.gameStart
             } // 
         }
-        case 'LOAD_DECK': {
-            console.log('LOAD_DECK', payload)
+        case 'GAME_OVER': {
+            console.log('GAME_OVER', payload)
             return {
                 ...state,
-                deck: payload.deck
+                gameOver: payload.gameOver
             } // 
         }
-        case 'SHUFFLE_DECK': {
-            console.log('SHUFFLE_DECK', payload)
+        case 'LOAD_DECK': {
+            // console.log('LOAD_DECK', payload)
             return {
                 ...state,
                 deck: payload.deck
             } // 
         }
         case 'SET_BOARD': {
-            console.log('SET_BOARD', payload)
+            // console.log('SET_BOARD', payload)
             return {
                 ...state,
                 deck: payload.deck,
@@ -49,17 +51,18 @@ export const gameReducer = (state, action) => {
             console.log('CHECK_FOR_SET', payload)
             return {
                 ...state,
-                selectedCards: payload.selectedCards,
-                boardCards: payload.boardCards,
-                score: payload.score
+                score: payload.score,
+                message: payload.message
             } // 
         }
-        case 'ADD_THREE_CARDS': {
-            console.log('ADD_THREE_CARDS', payload)
+        case 'UPDATE_BOARD': {
+            console.log('UPDATE_BOARD', payload)
             return {
                 ...state,
                 deck: payload.deck,
-                boardCards: payload.boardCards
+                selectedCards: payload.selectedCards,
+                boardCards: payload.boardCards,
+                message: payload.message
             } // 
         }
         default: {

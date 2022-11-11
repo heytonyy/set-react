@@ -5,13 +5,13 @@ import styles from "../style/board.module.css"
 
 const ShowCounter = ({ minutes, seconds, turnRed }) => {
   return (
-    <div className={turnRed ? styles.danger : null}>
+    <div className={`${styles.showCounter} ${turnRed ? styles.danger : null}`}>
         {minutes}<span>:</span>{seconds}
     </div>
   )
 }
 
-const Timer = ({ targetDate }) => {
+const Timer = memo( ({ targetDate }) => {
   const [minutes, seconds] = useCountdown(targetDate);
   const { setGame } = useContext(GameContext)
 
@@ -40,7 +40,7 @@ const Timer = ({ targetDate }) => {
       )
     }
   }
-}
+})
 
 export default Timer
 

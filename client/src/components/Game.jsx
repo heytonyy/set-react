@@ -58,10 +58,12 @@ const Game = () => {
   }
 
   return (
-    <GameContext.Provider value={{ gameStart, setGame }}>
-      <BoardMenu startGame={startGame} newBoard={newBoard} deck={deck} score={score} />
-      <Board currentCards={boardCards} setBoardCards={setBoardCards} setScore={setScore} score={score} />
-    </GameContext.Provider>
+    <>
+      <GameContext.Provider value={{ gameStart, setGame }}>
+        <BoardMenu startGame={startGame} newBoard={newBoard} deck={deck} score={score} />
+        <Board currentCards={boardCards} setBoardCards={setBoardCards} setScore={setScore} score={score} />
+      </GameContext.Provider>
+    </>
   )
 }
 

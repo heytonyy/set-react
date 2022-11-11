@@ -5,12 +5,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 6px;
+  padding: 2% 0 2%;
   max-width: 100vh;
   margin: 0 20px;
   background: #eee;
   font-family: 'Red Hat Mono', monospace;
 }
+
 .menuBtn {
   background: dodgerblue;
   border: 1px solid #eee;
@@ -20,19 +21,40 @@
   padding: 2%;
   font-family: 'Red Hat Mono', monospace;
 }
-.menuText {
+
+.menuItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: 'Red Hat Mono', monospace;
+  color: #000;
 }
+
+.menuItem > p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.danger {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
 
 /* GAME BOARD */
 .board {
   display: flex;
   flex-flow: row wrap;
   background: #eee;
-  padding: 6px;
+  padding: 1%;
   max-width: 100vh;
   margin: 0 20px;
 }
+
 .card {
   margin: 5px;
   width: calc(33.33% - 10px);
@@ -42,6 +64,7 @@
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
   position: relative;
 }
+
 .cardContent {
   position: absolute;
   height: 100%;
@@ -50,10 +73,12 @@
   display: flex;
   justify-content: center;
 }
+
 svg {
   height: 100%;
   margin: 0 2%;
 }
+
 .clickOverlay {
   border-radius: 10px;
   position: absolute;
@@ -62,13 +87,17 @@ svg {
   top: 0;
   z-index: 1;
 }
+
 .selected {
   box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2), inset 0 0 5px 1px black;
 }
-.message, .message > p {
+
+.message {
   background: #eee;
-  padding: 6px;
+  text-align: center;
   max-width: 100vh;
   margin: 0 20px;
+  /* font-size: 1.25rem; */
+  font-weight: bold;
   font-family: 'Red Hat Mono', monospace;
 }

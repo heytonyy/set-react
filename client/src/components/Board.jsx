@@ -36,6 +36,7 @@ const Board = ({ currentCards, setBoardCards, setScore, score }) => {
         if (selectedCards.length === 3) {
             // array to set to message
             const failed = []
+            let toDelete = false
             // check for failed set properties
             if (checkForSet(selectedCards, 'number')) {
                 failed.push(checkForSet(selectedCards, 'number'))
@@ -57,17 +58,18 @@ const Board = ({ currentCards, setBoardCards, setScore, score }) => {
                 // success msg
                 setMessage("Great job! That's a set!")
                 // delete cards
-                const remainingBoard = currentCards.filter(card => !selectedCards.includes(card))
-                setBoardCards(remainingBoard)
+                toDelete = true
             } else {
-                setMessage(`FAILED THE FOLLOWING: ${failed}.`)
+                setMessage(`NOT A SET BECAUSE: ${failed}.`)
             }
             // delay
             setTimeout(() => {
                 // clear state
+                const remainingBoard = toDelete ? currentCards.filter(card => !selectedCards.includes(card)) : currentCards
+                setBoardCards(remainingBoard)
                 setSelectedCards([])
                 setMessage(null)
-            }, 1000)
+            }, 2000)
         }
     }, [selectedCards])
 
@@ -87,11 +89,10 @@ const Board = ({ currentCards, setBoardCards, setScore, score }) => {
         <>
             <div className={styles.message}>
                 {
-                    message && <p>{message}</p>
+                    message ? message : <>&nbsp;</>
                 }
             </div>
             <div className={styles.board}>
-                <br />
                 {
                     gameStart && currentCards.map((p, i) => <Card key={i} card={p} selectedCards={selectedCards} selectedHandler={selectedHandler} />)
                 }
