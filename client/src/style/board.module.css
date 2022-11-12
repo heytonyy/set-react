@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 2%;
+  padding: 1%;
   max-width: 100vh;
   margin: 0 20px;
   background: #eee;
@@ -50,7 +50,7 @@
   display: flex;
   flex-flow: row wrap;
   background: #eee;
-  padding: 2%;
+  padding: 1%;
   max-width: 100vh;
   margin: 0 20px;
 }
@@ -97,7 +97,7 @@ svg {
   text-align: center;
   max-width: 100vh;
   margin: 0 20px;
-  padding: 2%;
+  padding: 1%;
   /* font-size: 1.25rem; */
   font-weight: bold;
   font-family: 'Red Hat Mono', monospace;

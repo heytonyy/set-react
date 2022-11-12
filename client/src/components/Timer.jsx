@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+import React from "react"
 import { useCountdown } from "../hooks/useCountdown"
 import useGame from "../context/GameContext"
 import styles from "../style/board.module.css"

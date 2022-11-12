@@ -2,24 +2,22 @@ import React, { useEffect } from "react"
 import styles from "../style/board.module.css"
 import Timer from "./Timer"
 import useGame from "../context/GameContext"
+import { useState } from "react"
 
 const BoardMenu = () => {
   const { gameStart, gameOver, toggleStart, deck, score, setBoard } = useGame()
+  const [startTime, setStartTime] = useState({})
+
+  const numMinutes = 5
+  const MINS_IN_MS = numMinutes * 60 * 1000;
+  const NOW_IN_MS = new Date().getTime();
+  const targetTime = NOW_IN_MS + MINS_IN_MS;
 
   const startGame = () => {
     toggleStart()
     setBoard()
+    setStartTime(targetTime)
   }
-
-  useEffect(() => {
-    
-  }, [gameStart, gameOver])
-  
-
-  const numMinutes = 1
-  const MINS_IN_MS = numMinutes * 2 * 1000;
-  const NOW_IN_MS = new Date().getTime();
-  const targetTime = NOW_IN_MS + MINS_IN_MS;
 
   return (
     <div className={styles.menu}>
@@ -39,7 +37,7 @@ const BoardMenu = () => {
       <div className={styles.menuItem}>
         <strong>Time</strong>
         {
-          (gameStart && !gameOver) ? <Timer targetDate={targetTime} /> : <p>5:00</p>
+          (gameStart && !gameOver) ? <Timer targetDate={startTime} /> : <p>5:00</p>
         }
       </div>
 

@@ -97,16 +97,19 @@ export const GameProvider = ({ children }) => {
                 message: newMessage,
             }
         })
-        // 1 second delay
+        // 2 second delay
         setTimeout(() => {
-            const deckCopy = state.deck
-            const boardCopy = state.boardCards
-            let newBoard = boardCopy
-            let newDeck = deckCopy
+            let newBoard = state.boardCards
+            let newDeck = state.deck
             if (ogScore !== newScore) {
-                newBoard = boardCopy.filter(card => !newSelected.includes(card))
+                const boardCopy = newBoard
+                let deckCopy = newDeck
+                // newboard = remaining + top3 cards of deck
                 const top3Cards = deckCopy.slice(0, 3)
-                newBoard = [...newBoard, ...top3Cards]
+                const remaining = boardCopy.filter(card => !newSelected.includes(card))
+                newBoard = [...remaining, ...top3Cards]
+                // remaining deck starts on card 4
+                newDeck = deckCopy.slice(3)
             }
             dispatch({
                 type: 'UPDATE_BOARD',
@@ -117,7 +120,7 @@ export const GameProvider = ({ children }) => {
                     message: ''
                 }
             })
-        }, 1000)
+        }, 2000)
     }
     // returns a string of the prop(s) that dont pass the set test, returns false if passed
     const setTest = (cards, prop) => {

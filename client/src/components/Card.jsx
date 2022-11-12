@@ -7,14 +7,14 @@ const NewCard = ({ card }) => {
     const { selectedCards, toggleSelectCard } = useGame()
     const [isActive, setActive] = useState(false)
 
-    // when 3 cards are selected, clears 'selected' class after 1sec delay
+    // when 3 cards are selected, clears 'selected' class after 2sec delay
     useEffect(() => {
         if (selectedCards.length === 3) {
             setTimeout(()=> {
                 if (isActive) {
                     setActive(false)
                 }
-            }, 1000)
+            }, 2000)
         }
     }, [selectedCards])
 
