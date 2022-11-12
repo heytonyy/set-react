@@ -9,9 +9,9 @@ I've always had a huge love for any sort of puzzle / problem / riddle / quirky-l
 <br>
 
 TODO:
-1. Refactor game and have useContext for all Game data (deck, boarCards, score, selected cards)
-2. Refactor and utilize useReducer to have switch cases for all the different actions of the gameContext
-3. Make sure it works
+1. (FINISHED) Refactor game and have useContext for all Game data (deck, boarCards, score, selected cards)
+2. (FINISHED) Refactor and utilize useReducer to have switch cases for all the different actions of the gameContext
+3. (FINISHED?) Make sure it works
 4. Add more CSS style the selected cards when checking for set/CSS (blinking?) for cards entering/exting the board(swoosh in)
 5. LEADERBOARD Component
     - Make scoreboard schema in mongodb
