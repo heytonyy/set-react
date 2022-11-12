@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import axios from "axios"
-import useGame from "../context/NewGameContext"
+import useGame from "../context/GameContext"
 
 const LoadDeck = () => {
     const { loadDeck } = useGame()

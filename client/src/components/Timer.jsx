@@ -1,6 +1,6 @@
-import React, { memo, useContext } from "react"
+import React, { memo } from "react"
 import { useCountdown } from "../hooks/useCountdown"
-import { GameContext } from "../context/GameContext"
+import useGame from "../context/GameContext"
 import styles from "../style/board.module.css"
 
 const ShowCounter = ({ minutes, seconds, turnRed }) => {
@@ -13,10 +13,10 @@ const ShowCounter = ({ minutes, seconds, turnRed }) => {
 
 const Timer = ({ targetDate }) => {
   const [minutes, seconds] = useCountdown(targetDate);
-  const { setGame } = useContext(GameContext)
+  const { sorryGameOver } = useGame()
 
   if (minutes + seconds <= 0) {
-    return setGame() // this means the games over, board disappears, go to endGame view
+    return sorryGameOver()
   } else {
     if (seconds < 10 && minutes === 0) {
       const withPreZero = `0${seconds}`

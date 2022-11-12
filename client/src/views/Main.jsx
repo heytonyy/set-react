@@ -3,7 +3,7 @@ import Footer from "../components/Footer"
 import Game from "../components/Game"
 import Header from "../components/Header"
 import Rules from "../components/Rules"
-// import NewGame from "../components/NewGame"
+// import OldGame from "../components/old-components/OldGame"
 
 
 const Main = () => {
@@ -12,7 +12,7 @@ const Main = () => {
     <>
       <Header />
       <Game />
-      {/* <NewGame /> */}
+      {/* <OldGame /> */}
       <Footer />
       <Rules />
     </>

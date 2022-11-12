@@ -1,9 +1,10 @@
-import React from "react"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import styles from "../style/board.module.css"
 import ShapeSVG from "./ShapeSVG"
+import useGame from "../context/GameContext"
 
-const Card = ({ card, selectedHandler, selectedCards }) => {
+const NewCard = ({ card }) => {
+    const { selectedCards, toggleSelectCard } = useGame()
     const [isActive, setActive] = useState(false)
 
     // when 3 cards are selected, clears 'selected' class after 1sec delay
@@ -13,7 +14,7 @@ const Card = ({ card, selectedHandler, selectedCards }) => {
                 if (isActive) {
                     setActive(false)
                 }
-            }, 2000)
+            }, 1000)
         }
     }, [selectedCards])
 
@@ -21,12 +22,11 @@ const Card = ({ card, selectedHandler, selectedCards }) => {
         // this works but is there a better way?
         if (selectedCards.length < 3) {
             if (e.target.classList[1].includes("selected")) {
-                selectedHandler(card, "remove")
-                setActive(!isActive)
+                toggleSelectCard(card, "REMOVE")
             } else {
-                selectedHandler(card, "add")
-                setActive(!isActive)
+                toggleSelectCard(card, "ADD")
             }
+            setActive(!isActive)
         }
     }
 
@@ -47,4 +47,4 @@ const Card = ({ card, selectedHandler, selectedCards }) => {
     )
 }
 
-export default Card
+export default NewCard
