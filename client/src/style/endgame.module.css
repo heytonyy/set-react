@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+
+/* ~~~~~~~~~~~ */
+/* GLOBAL */
+/* ~~~~~~~~~~~ */
+body {
+  font-family: 'Nanum Gothic Coding', monospace;
+}
+
+/* ~~~~~~~~~~~ */
+/* BOARD */
+/* ~~~~~~~~~~~ */
+.boardHead {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  background: #eee;
+  padding: 1%;
+  max-width: 100vh;
+  margin: 0 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.boardBody {
+  background: #eee;
+  padding: 1%;
+  max-width: 100vh;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.boardFoot {
+  background: #eee;
+  padding: 1%;
+  max-width: 100vh;
+  margin: 0 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+}
+
+.card {
+  margin: 5px;
+  width: calc(33.33% - 10px);
+  padding-top: 20%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.cardContent {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+/* LEADERBOARD */
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+}
+table * {
+  position: relative;
+}
+table td, table th {
+  padding: 10px;
+}
+table thead tr {
+  background: dodgerblue;
+  color: white;
+  font-size: 16px;
+}
+table tbody tr {
+  height: 48px;
+  border-bottom: 1px solid #E3F1D5;
+}
+table tbody tr:last-child {
+  border: 0;
+}
+
+/* ~~~~~~~~~~~ */
+/* FOOTER */
+/* ~~~~~~~~~~~ */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 6px;
+  max-width: 100vh;
+  margin: 0 20px;
+  font-size: 0.75em;
+}

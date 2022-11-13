@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from '../style/game.module.css'
-import RulesExample from './RulesExample'
+import React from "react"
+import styles from "../style/game.module.css"
+import RulesExample from "./RulesExample"
 
 const Rules = () => {
   // example endpoint response from API

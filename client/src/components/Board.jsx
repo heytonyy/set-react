@@ -6,6 +6,7 @@ import useGame from "../context/GameContext"
 const Board = () => {
     const { gameStart, boardCards, selectedCards, message, updateBoard } = useGame()
 
+    // every time selectedCards changeds, check for set if selectedCards is three
     useEffect(() => {
         if (selectedCards.length === 3) {
             updateBoard()

@@ -1,24 +1,30 @@
-import React from "react"
+import React, { useState } from "react"
+import Game from "./Game"
+import EndGame from "./EndGame"
 import Footer from "../components/Footer"
-import Game from "../components/Game"
 import Header from "../components/Header"
 import Rules from "../components/Rules"
-import Leaderboard from "./Leaderboard"
-import useGame, { GameProvider } from "../context/GameContext"
+import { GameProvider } from "../context/GameContext"
 
 const Main = () => {
-  const { gameOver } = useGame()
+  // state to know when to switch to EndGame view
+  const [showEndGame, setShowEndGame] = useState(false)
 
   return (
     <>
       <Header />
       <GameProvider>
         {
-          !gameOver ? <Game /> : <Leaderboard />
+          !showEndGame ? <>
+            <Game setShowEndGame={setShowEndGame} />
+            <Footer />
+            <Rules />
+          </> : <>
+            <EndGame />
+            <Footer />
+          </>
         }
       </GameProvider>
-      <Footer />
-      <Rules />
     </>
   )
 }

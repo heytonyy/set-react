@@ -2,26 +2,27 @@ import React, { useState, useEffect } from "react"
 import styles from "../style/game.module.css"
 import ShapeSVG from "./ShapeSVG"
 import useGame from "../context/GameContext"
-import 'animate.css'
+import "animate.css"
 
 const Card = ({ card }) => {
     const { selectedCards, toggleSelectCard, deck } = useGame()
+
     const [isActive, setActive] = useState(false)
-    const [deckCheck, setDeckCheck] = useState(deck.length) // used to clear isActive when board is reset
     const [isBlinking, setBlinking] = useState(false)
+    const [deckCheck, setDeckCheck] = useState(deck.length) // used to clear isActive when board is reset
 
     useEffect(() => {
         // 2 sec delay to match up with updateBoard --> clears isActive
         if (selectedCards.length === 3) {
-            setBlinking(isActive)
+            setBlinking(isActive) // turn on blinking
             setTimeout(()=> {
                 if (isActive) {
                     setActive(false)
-                    setBlinking(false)
+                    setBlinking(false) // turn off blinking
                 }
             }, 2000)
         }
-        // true if board was reset --> clears iaActive
+        // true if board was reset --> clears isActive
         if (deckCheck > deck.length) {
             if (isActive) {
                 setActive(false)
@@ -51,7 +52,7 @@ const Card = ({ card }) => {
             <div className={styles.cardContent}>
                 {
                     // repeats for the number of shapes... cool trick, thanks stacks over flow!
-                    [...Array(card.number)].map((e, i) => <ShapeSVG card={card} key={i} />)
+                    [...Array(card.number)].map((_, i) => <ShapeSVG card={card} key={i} />)
                 }
             </div>
         </div>

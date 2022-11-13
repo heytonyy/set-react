@@ -5,7 +5,7 @@ import useGame from "../context/GameContext"
 const LoadDeck = () => {
     const { loadDeck, shuffle } = useGame()
 
-    // on game load
+    // when game mounts, fetch deck from api, shuffle, and load deck to context
     useEffect(() => {
         axios.get("http://localhost:8000/api/cards/")
             .then(res => {
@@ -16,7 +16,7 @@ const LoadDeck = () => {
     }, [])
 
     return (
-        <></>
+        <></> // dont need anyhting to return
     )
 }
 

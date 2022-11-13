@@ -1,21 +1,30 @@
-import React, {useState} from "react"
+import React from "react"
 import styles from "../style/game.module.css"
 import Timer from "./Timer"
 import useGame from "../context/GameContext"
 
 const BoardMenu = () => {
-  const { gameStart, gameOver, toggleStart, deck, score, setBoard } = useGame()
+  const { gameStart, gameOver, deck, score, setBoard, toggleStart, sorryGameOver } = useGame()
 
   const startGame = () => {
     toggleStart()
     setBoard()
   }
 
+  // end condition for running out of cards
+  const drawFromDeck = () => {
+    if (deck.length > 0) {
+      setBoard()
+    } else {
+      sorryGameOver()
+    }
+  }
+
   return (
     <div className={styles.menu}>
       {/* GAME BUTTON -- conditionally rendered based off gameStart */}
       {
-        (gameStart && !gameOver) ? <button onClick={setBoard} className={styles.menuBtn}>New Board</button>
+        (gameStart && !gameOver) ? <button onClick={drawFromDeck} className={styles.menuBtn}>New Board</button>
           : <button onClick={startGame} className={styles.menuBtn}>Start</button>
       }
 

@@ -11,12 +11,13 @@ const ShowCounter = ({ minutes, seconds, turnRed }) => {
 }
 
 const Timer = () => {
-  const startMinutes = 2
-  const [timerMinsutes, settimerMinsutes] = useState(startMinutes)
-  const [timerSeconds, settimerSeconds] = useState('0')
+  const startMinutes = 1
+  const startSeconds = 0
+  const [timerMinutes, settimerMinutes] = useState(startMinutes)
+  const [timerSeconds, settimerSeconds] = useState(startSeconds)
   const { sorryGameOver } = useGame()
   
-  const MINS_IN_MS = startMinutes * 60 * 1000
+  const MINS_IN_MS = startMinutes * 10 * 1000 + 1000 // have to add 1 extra second?
   const NOW_IN_MS = new Date().getTime();
   const TARGET_TIME = NOW_IN_MS + MINS_IN_MS;
 
@@ -34,7 +35,7 @@ const Timer = () => {
         sorryGameOver() // stops the game
         clearInterval(interval.current)
       } else {
-        settimerMinsutes(minutes)
+        settimerMinutes(minutes)
         settimerSeconds(seconds)
       }
     }, 1000)
@@ -47,25 +48,25 @@ const Timer = () => {
     };
   }, [])
 
-  if (timerSeconds < 10 && timerMinsutes === 0) {
+  if (timerSeconds < 10 && timerMinutes === 0) {
     const withPreZero = `0${timerSeconds}`
-    const noMinutes = ''
+    const noMinutes = ""
     return (
-      <ShowCounter minutes={noMinutes} seconds={withPreZero} turnRed={timerMinsutes === 0} />
+      <ShowCounter minutes={noMinutes} seconds={withPreZero} turnRed={timerMinutes === 0} />
     )
-  } else if (timerMinsutes === 0) {
-    const noMinutes = ''
+  } else if (timerMinutes === 0) {
+    const noMinutes = ""
     return (
-      <ShowCounter minutes={noMinutes} seconds={timerSeconds} turnRed={timerMinsutes === 0} />
+      <ShowCounter minutes={noMinutes} seconds={timerSeconds} turnRed={timerMinutes === 0} />
     )
   } else if (timerSeconds < 10) {
     const withPreZero = `0${timerSeconds}`
     return (
-      <ShowCounter minutes={timerMinsutes} seconds={withPreZero} turnRed={false} />
+      <ShowCounter minutes={timerMinutes} seconds={withPreZero} turnRed={false} />
     )
   } else {
     return (
-      <ShowCounter minutes={timerMinsutes} seconds={timerSeconds} turnRed={false} />
+      <ShowCounter minutes={timerMinutes} seconds={timerSeconds} turnRed={false} />
     )
   }
 }

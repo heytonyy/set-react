@@ -6,10 +6,6 @@
 body {
   font-family: 'Nanum Gothic Coding', monospace;
 }
-.centerContent {
-  display: flex;
-  justify-content: center;
-}
 
 /* ~~~~~~~~~~~ */
 /* HEADER */
@@ -68,6 +64,10 @@ body {
 }
 
 .success {
+  color: green;
+}
+
+.default {
   color: green;
 }
 
@@ -173,3 +173,10 @@ svg {
   margin: 0 20px;
   border-radius: 10px;
 }
+
+/* TODO: Media queries to make responsive(text) */
+/* @media screen and (min-width: 450px) {
+  .container {
+    --fontsize: 50px;
+  }
+} */
