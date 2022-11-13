@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react"
-import styles from "../style/board.module.css"
+import styles from "../style/game.module.css"
 import ShapeSVG from "./ShapeSVG"
 import useGame from "../context/GameContext"
 
-const NewCard = ({ card }) => {
-    const { selectedCards, toggleSelectCard } = useGame()
+const Card = ({ card }) => {
+    const { selectedCards, toggleSelectCard, deck } = useGame()
     const [isActive, setActive] = useState(false)
+    const [deckCheck, setDeckCheck] = useState(deck.length) // used to clear isActive when board is reset
 
-    // when 3 cards are selected, clears 'selected' class after 2sec delay
     useEffect(() => {
+        // 2 sec delay to match up with updateBoard --> clears isActive
         if (selectedCards.length === 3) {
             setTimeout(()=> {
                 if (isActive) {
@@ -16,10 +17,16 @@ const NewCard = ({ card }) => {
                 }
             }, 2000)
         }
+        // true if board was reset --> clears iaActive
+        if (deckCheck > deck.length) {
+            if (isActive) {
+                setActive(false)
+            }
+            setDeckCheck(deck.length)
+        }
     }, [selectedCards])
 
     const onCardClick = (card, e) => {
-        // this works but is there a better way?
         if (selectedCards.length < 3) {
             if (e.target.classList[1].includes("selected")) {
                 toggleSelectCard(card, "REMOVE")
@@ -47,4 +54,4 @@ const NewCard = ({ card }) => {
     )
 }
 
-export default NewCard
+export default Card

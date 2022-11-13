@@ -43,7 +43,8 @@ export const GameProvider = ({ children }) => {
             type: 'SET_BOARD',
             payload: {
                 deck: newDeck,
-                boardCards: updatedBoard
+                boardCards: updatedBoard,
+                selectedCards: [] // need to clear selected
             }
         })
     }
@@ -143,6 +144,19 @@ export const GameProvider = ({ children }) => {
         }
         return false
     }
+        // shuffle algorithm
+        const shuffle = (array) => {
+            let currentIndex = array.length, randomIndex
+            // while there remain elements to shuffle.
+            while (currentIndex !== 0) {
+                // pick a remaining element.
+                randomIndex = Math.floor(Math.random() * currentIndex)
+                currentIndex--
+                // swap it with the current element.
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
+            }
+            return array
+        }
 
     const gameControls = {
         gameStart: state.gameStart,
@@ -157,7 +171,8 @@ export const GameProvider = ({ children }) => {
         loadDeck,
         setBoard,
         toggleSelectCard,
-        updateBoard
+        updateBoard,
+        shuffle
     }
     return (
         <GameContext.Provider value={gameControls}>

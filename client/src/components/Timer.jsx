@@ -1,12 +1,12 @@
 import React from "react"
 import { useCountdown } from "../hooks/useCountdown"
 import useGame from "../context/GameContext"
-import styles from "../style/board.module.css"
+import styles from "../style/game.module.css"
 
 const ShowCounter = ({ minutes, seconds, turnRed }) => {
   return (
     <div className={turnRed ? styles.danger : null}>
-        {minutes}<span>:</span>{seconds}
+      {minutes}<span>:</span>{seconds}
     </div>
   )
 }
@@ -16,7 +16,8 @@ const Timer = ({ targetDate }) => {
   const { sorryGameOver } = useGame()
 
   if (minutes + seconds <= 0) {
-    return sorryGameOver()
+    sorryGameOver()
+    return
   } else {
     if (seconds < 10 && minutes === 0) {
       const withPreZero = `0${seconds}`

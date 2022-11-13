@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import Card from "./Card"
-import styles from "../style/board.module.css"
+import styles from "../style/game.module.css"
 import useGame from "../context/GameContext"
 
 const Board = () => {
@@ -10,7 +10,7 @@ const Board = () => {
         if (selectedCards.length === 3) {
             updateBoard()
         }
-    }, [selectedCards, gameStart])
+    }, [selectedCards])
     
     return (
         <>

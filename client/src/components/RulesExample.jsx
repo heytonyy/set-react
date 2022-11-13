@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "../style/rules.module.css"
+import styles from "../style/game.module.css"
 import ShapeSVG from "./ShapeSVG"
 
 const RulesExample = ({ card }) => {

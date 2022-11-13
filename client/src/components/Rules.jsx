@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../style/rules.module.css'
+import styles from '../style/game.module.css'
 import RulesExample from './RulesExample'
 
 const Rules = () => {
@@ -54,7 +54,7 @@ const Rules = () => {
       </ul>
       <p>The following is an example of a set:</p>
 
-      <div className={styles.board}>
+      <div className={styles.exampleBoard}>
         {
           examples.map((p, i) => <RulesExample key={i} card={p} />)
         }

@@ -1,5 +1,4 @@
 export const initialState = {
-    startTime: {},
     gameStart: false,
     gameOver: false,
     deck: [],
@@ -35,7 +34,8 @@ export const gameReducer = (state, action) => {
             return {
                 ...state,
                 deck: payload.deck,
-                boardCards: payload.boardCards
+                boardCards: payload.boardCards,
+                selectedCards: payload.selectedCards
             }
         }
         case 'SELECT_CARD': {
