@@ -39,17 +39,17 @@ const Rules = () => {
 
   return (
     <div className={styles.rules}>
-      <p> <span className={styles.boldUnder}>Rules</span>:</p>
-      <p>The objective of the game is to find a <span className={styles.boldUnder}>set</span> of cards.</p>
-      <p>A <span className={styles.boldUnder}>set</span> consists of three cards satisfying all of these conditions:</p>
+      <p> <strong>Rules</strong>:</p>
+      <p>The objective of the game is to find a <strong>set</strong> of cards.</p>
+      <p>A <strong>set</strong> consists of three cards satisfying all of these conditions:</p>
       <ul>
-        <li>They all have the <span className={styles.boldUnder}>same</span> number of shapes or have <span className={styles.boldUnder}>three different</span> number of shapes.</li>
+        <li>They all have the <strong>same</strong> number of shapes or have <strong>three different</strong> number of shapes.</li>
         {/* <li className={styles.nobullets}>(1-3)</li> */}
-        <li>They all have the <span className={styles.boldUnder}>same</span> shape or have <span className={styles.boldUnder}>three different</span> shapes.</li>
+        <li>They all have the <strong>same</strong> shape or have <strong>three different</strong> shapes.</li>
         {/* <li className={styles.nobullets}>(diamond, squiggle, oval)</li> */}
-        <li>They all have the <span className={styles.boldUnder}>same</span> fill or have <span className={styles.boldUnder}>three different</span> fills.</li>
+        <li>They all have the <strong>same</strong> fill or have <strong>three different</strong> fills.</li>
         {/* <li className={styles.nobullets}>(striped, solid, open)</li> */}
-        <li>They all have the <span className={styles.boldUnder}>same</span> color or have <span className={styles.boldUnder}>three different</span> colors.</li>
+        <li>They all have the <strong>same</strong> color or have <strong>three different</strong> colors.</li>
         {/* <li className={styles.nobullets}>(red, green, purple)</li> */}
       </ul>
       <p>The following is an example of a set:</p>
@@ -66,11 +66,11 @@ const Rules = () => {
         <li>They all have three different fills (<strong>striped, solid, open</strong>)</li>
         <li>They all have the same color (<strong>red</strong>)</li>
       </ul>
-      <p>The board will have exactly <span className={styles.boldUnder}>12 cards</span> in play. If you click 3 cards that are a set, the cards are removed from the board and 3 new cards are drawn from the deck and placed on the board.</p>
-      <p>If you want a new board or cant find a set, press '<span className={styles.boldUnder}>New Board</span>' to get 12 new cards on the board. The previous cards are discarded.</p>
-      <p>There are <span className={styles.boldUnder}>81 cards</span> in the deck. You will have <span className={styles.boldUnder}>10 mins</span> to find as many sets as possible.</p>
-      <p>If you run out of time or the deck runs of cards, <span className={styles.boldUnder}>the game is over</span>.</p>
-      <p>When ready, press the '<span className={styles.boldUnder}>Start</span>' button to play. Enjoy!</p>
+      <p>The board will have exactly <strong>12 cards</strong> in play. If you click 3 cards that are a set, the cards are removed from the board and 3 new cards are drawn from the deck and placed on the board.</p>
+      <p>If you want a new board or cant find a set, press "<strong>New Board</strong>" to get 12 new cards on the board. The previous cards are discarded.</p>
+      <p>There are <strong>81 cards</strong> in the deck. You will have <strong>10 mins</strong> to find as many sets as possible.</p>
+      <p>If you run out of time or the deck runs of cards, <strong>the game is over</strong>.</p>
+      <p>When ready, press the "<strong>Start</strong>" button to play. Enjoy!</p>
     </div>
   )
 }

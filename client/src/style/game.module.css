@@ -1,6 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
 
-/* HEADER CSS */
+/* ~~~~~~~~~~~ */
+/* GLOBAL */
+/* ~~~~~~~~~~~ */
+body {
+  font-family: 'Nanum Gothic Coding', monospace;
+}
+.centerContent {
+  display: flex;
+  justify-content: center;
+}
+
+/* ~~~~~~~~~~~ */
+/* HEADER */
+/* ~~~~~~~~~~~ */
 .header {
   display: flex;
   flex-flow: row wrap;
@@ -8,17 +21,17 @@
   max-width: 100vh;
   margin: 0 20px;
 }
+
 .headerTitle {
-    font-family: 'Red Hat Mono', monospace;
-    font-size: 5rem;
-    font-weight: bolder;
-    margin: 0;
-    padding: 0;
+  font-size: 5rem;
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
 }
 
-/* GAME */
-
+/* ~~~~~~~~~~~ */
 /* MENU */
+/* ~~~~~~~~~~~ */
 .menu {
   display: flex;
   justify-content: space-around;
@@ -27,10 +40,11 @@
   max-width: 100vh;
   margin: 0 20px;
   background: #eee;
-  font-family: 'Red Hat Mono', monospace;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  font-size: 1.25rem;
 }
+
 .menuBtn {
   background: dodgerblue;
   border: 1px solid #eee;
@@ -38,23 +52,36 @@
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   padding: 2%;
-  font-family: 'Red Hat Mono', monospace;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-size: 1.25rem;
 }
+
 .menuItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Red Hat Mono', monospace;
   color: #000;
 }
+
 .danger {
   color: red;
 }
-.menuItem > p {
+
+.success {
+  color: green;
+}
+
+.menuItem>p {
   margin: 0;
   padding: 0;
 }
+.menuItem>strong {
+  font-size: 1.5rem;
+}
+
+/* ~~~~~~~~~~~ */
 /* BOARD */
+/* ~~~~~~~~~~~ */
 .board {
   display: flex;
   flex-flow: row wrap;
@@ -65,6 +92,7 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .card {
   margin: 5px;
   width: calc(33.33% - 10px);
@@ -74,6 +102,7 @@
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
   position: relative;
 }
+
 .cardContent {
   position: absolute;
   height: 100%;
@@ -82,10 +111,12 @@
   display: flex;
   justify-content: center;
 }
+
 svg {
   height: 100%;
   margin: 0 2%;
 }
+
 .clickOverlay {
   border-radius: 10px;
   position: absolute;
@@ -94,51 +125,48 @@ svg {
   top: 0;
   z-index: 1;
 }
+
 .selected {
   box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2), inset 0 0 5px 1px black;
 }
+
 .message {
   background: #eee;
   text-align: center;
   max-width: 100vh;
   margin: 0 20px;
   padding: 1%;
-  /* font-size: 1.25rem; */
   font-weight: bold;
-  font-family: 'Red Hat Mono', monospace;
 }
+
+/* ~~~~~~~~~~~ */
 /* FOOTER */
+/* ~~~~~~~~~~~ */
 .footer {
   display: flex;
-  flex-flow: row wrap;
+  justify-content: flex-end;
   padding: 6px;
   max-width: 100vh;
   margin: 0 20px;
-  font-family: 'Red Hat Mono', monospace;
-  font-size: 0.5em;
-  display: flex;
-  justify-content: flex-end;
+  font-size: 0.75em;
 }
+
+/* ~~~~~~~~~~~ */
 /* RULES */
+/* ~~~~~~~~~~~ */
 .rules {
-    max-width: 100vh;
-    margin: 0 20px;
-    font-family: 'Red Hat Mono', monospace;
+  max-width: 100vh;
+  margin: 0 20px;
+  font-size: 1.25rem;
 }
-.setExample {
-    display: flex;
-    justify-content: center;
-}
+
 .boldUnder {
-    font-weight: bold;
-    text-decoration: underline;
+  font-weight: bold;
+  text-decoration: underline;
 }
-li.nobullets {
-    list-style-type:none
-}
+
 .exampleBoard {
   display: flex;
-  flex-flow: row wrap;
   background: #eee;
   padding: 6px;
   max-width: 100vh;

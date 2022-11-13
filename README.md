@@ -12,7 +12,7 @@ TODO:
 1. (FINISHED) Refactor game and have useContext for all Game data (deck, boarCards, score, selected cards)
 2. (FINISHED) Refactor and utilize useReducer to have switch cases for all the different actions of the gameContext
 3. (FINISHED?) Make sure it works
-4. Add more CSS style the selected cards when checking for set/CSS (blinking?) for cards entering/exting the board(swoosh in)
+4. (FINISHED?) Add more CSS style the selected cards when checking for set/CSS (blinking?) (red/green)
 5. LEADERBOARD Component
     - Make scoreboard schema in mongodb
     - score: 3 initials (validate only 3, make caps)

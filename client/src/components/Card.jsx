@@ -2,18 +2,22 @@ import React, { useState, useEffect } from "react"
 import styles from "../style/game.module.css"
 import ShapeSVG from "./ShapeSVG"
 import useGame from "../context/GameContext"
+import 'animate.css'
 
 const Card = ({ card }) => {
     const { selectedCards, toggleSelectCard, deck } = useGame()
     const [isActive, setActive] = useState(false)
     const [deckCheck, setDeckCheck] = useState(deck.length) // used to clear isActive when board is reset
+    const [isBlinking, setBlinking] = useState(false)
 
     useEffect(() => {
         // 2 sec delay to match up with updateBoard --> clears isActive
         if (selectedCards.length === 3) {
+            setBlinking(isActive)
             setTimeout(()=> {
                 if (isActive) {
                     setActive(false)
+                    setBlinking(false)
                 }
             }, 2000)
         }
@@ -41,7 +45,7 @@ const Card = ({ card }) => {
         <div className={styles.card}>
             {/* div overlay with z-index=1, since below is a composite element */}
             <div onClick={(e) => onCardClick(card, e)}
-                className={`${styles.clickOverlay} ${isActive ? styles.selected : null}`}>
+                className={`${styles.clickOverlay} ${isActive ? styles.selected : null} ${isBlinking ? 'animate__animated animate__flash' : null}`}>
             </div>
             {/* content consists of SVG of shapes (which is composed of a viewbox, path, and fill pattern) */}
             <div className={styles.cardContent}>
