@@ -72,4 +72,4 @@ const Timer = () => {
 
 export default Timer
 
-// For ref: https://blog.greenroots.info/how-to-create-a-countdown-timer-using-react-hooks
+// For ref: https://www.youtube.com/watch?v=ZVOGPvo08zM
