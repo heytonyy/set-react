@@ -11,9 +11,7 @@ body {
 /* BOARD */
 /* ~~~~~~~~~~~ */
 .boardHead {
-  display: flex;
   justify-content: center;
-  flex-flow: row wrap;
   background: #eee;
   padding: 1%;
   max-width: 100vh;
@@ -22,7 +20,16 @@ body {
   border-top-right-radius: 10px;
 }
 
+.boardHead > h2 {
+  text-align: center;
+  font-size: 4vw;
+  margin-top: 1vw;
+  margin-bottom: 2vw;
+}
+
 .boardBody {
+  display: flex;
+  justify-content: center;
   background: #eee;
   padding: 1%;
   max-width: 100vh;
@@ -42,21 +49,22 @@ body {
 
 .card {
   margin: 5px;
-  width: calc(33.33% - 10px);
-  padding-top: 20%;
+  width: 50%;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
   position: relative;
 }
 
-.cardContent {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 10%;
-  display: flex;
-  justify-content: center;
+.test {
+  font-size: 6vw;
+}
+
+.cardTitle {
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  font-size: 2.5vw;
+  font-weight: bold;
 }
 
 /* LEADERBOARD */
@@ -70,6 +78,7 @@ table {
   width: 60%;
   margin: 0 auto;
   position: relative;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
 }
 table * {
   position: relative;
@@ -80,14 +89,55 @@ table td, table th {
 table thead tr {
   background: dodgerblue;
   color: white;
-  font-size: 16px;
+  font-size: 3vw;
+  text-align: center;
 }
 table tbody tr {
-  height: 48px;
+  font-size: 2.5vw;
   border-bottom: 1px solid #E3F1D5;
+  text-align: center;
+
 }
 table tbody tr:last-child {
   border: 0;
+}
+
+/* ~~~~~~~~~~~ */
+/* BUTTONS */
+/* ~~~~~~~~~~~ */
+.playAgainBtn {
+  background: dodgerblue;
+  border: 1px solid #eee;
+  color: white;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 2%;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-size: 4vw;
+}
+
+/* ~~~~~~~~~~~ */
+/* FORM */
+/* ~~~~~~~~~~~ */
+form input[type=text] {
+  border-radius: 5px;
+  width: 40%;
+  border: 1px solid rgb(153, 153, 153);
+  font-family: 'Nanum Gothic Coding', monospace;
+  padding: 5%;
+  margin-right: 3%;
+}
+form input[type=submit] {
+  background: dodgerblue;
+  border: 1px solid #eee;
+  color: white;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  font-family: 'Nanum Gothic Coding', monospace;
+  padding: 5% 7%;
+}
+form {
+  margin-bottom: 5%;
 }
 
 /* ~~~~~~~~~~~ */
@@ -99,5 +149,5 @@ table tbody tr:last-child {
   padding: 6px;
   max-width: 100vh;
   margin: 0 20px;
-  font-size: 0.75em;
+  font-size: 2vw;
 }

@@ -1,9 +1,14 @@
 import React from "react"
 import styles from "../style/endgame.module.css"
+import ScoreCard from "./ScoreCard"
 
 const Leaderboard = () => {
+
+    // fetch leaderboard from api and fill table
+    // conditionally render the ScoreCard if they made the top 10
+
     return (
-        <div className={styles.boardFoot}>
+        <div className={styles.boardHead}>
             <h2>Leaderboard</h2>
             <table>
                 <thead>
@@ -21,6 +26,7 @@ const Leaderboard = () => {
                     </tr>
                 </tbody>
             </table>
+            <ScoreCard />
         </div>
     )
 }

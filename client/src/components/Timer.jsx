@@ -11,12 +11,11 @@ const ShowCounter = ({ minutes, seconds, turnRed }) => {
 }
 
 const Timer = () => {
-  const startMinutes = 1
-  const startSeconds = 0
-  const [timerMinutes, settimerMinutes] = useState(startMinutes)
-  const [timerSeconds, settimerSeconds] = useState(startSeconds)
+  const [timerMinutes, settimerMinutes] = useState(10)
+  const [timerSeconds, settimerSeconds] = useState(0)
   const { sorryGameOver } = useGame()
   
+  const startMinutes = 1
   const MINS_IN_MS = startMinutes * 10 * 1000 + 1000 // have to add 1 extra second?
   const NOW_IN_MS = new Date().getTime();
   const TARGET_TIME = NOW_IN_MS + MINS_IN_MS;
@@ -32,8 +31,8 @@ const Timer = () => {
       const seconds = Math.floor((DIFF % (1000 * 60)) / 1000)
 
       if (DIFF < 0) {
-        sorryGameOver() // stops the game
         clearInterval(interval.current)
+        sorryGameOver() // stops the game
       } else {
         settimerMinutes(minutes)
         settimerSeconds(seconds)

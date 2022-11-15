@@ -6,7 +6,7 @@ import useGame from "../context/GameContext"
 const Board = () => {
     const { gameStart, boardCards, selectedCards, message, updateBoard } = useGame()
 
-    // every time selectedCards changeds, check for set if selectedCards is three
+    // every time selectedCards changes, check for set if selectedCards is three
     useEffect(() => {
         if (selectedCards.length === 3) {
             updateBoard()
@@ -16,9 +16,7 @@ const Board = () => {
     return (
         <>
             <div className={styles.message}>
-                {
-                    message
-                }
+                <span>{message}</span>
             </div>
             <div className={styles.board}>
                 <br />

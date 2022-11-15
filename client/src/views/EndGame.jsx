@@ -1,15 +1,13 @@
 import React from "react"
-import InitialsForm from "../components/InitialsForm"
 import Leaderboard from "../components/Leaderboard"
-import StatsCard from "../components/StatsCard"
+import PlayAgain from "../components/PlayAgain"
+import StatsCard from "../components/ScoreCard"
 
 const EndGame = () => {
-
   return (
     <>
-      <StatsCard />
-      <InitialsForm />
       <Leaderboard />
+      <PlayAgain />
     </>
   )
 }

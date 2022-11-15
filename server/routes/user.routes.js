@@ -1,14 +1,10 @@
-const UserController = require('../controllers/user.controllers')
+const LeaderboardController = require('../controllers/leaderboard.controllers')
 
 module.exports = app => {
     // create
-    app.post("/api/users/new", UserController.createUser);
+    app.post("/api/leaderboard/new", LeaderboardController.addToLeaderboard);
     // read all
-    app.get("/api/users/", UserController.getAllUsers);
-    // read one
-    app.get("/api/users/:user_id", UserController.getOneUser);
-    // update
-    app.put("/api/users/update/:user_id", UserController.updateUser);
+    app.get("/api/leaderboard/", LeaderboardController.getLeaderboards);
     // delete
-    app.delete("/api/users/delete/:user_id", UserController.deleteUser);
+    app.delete("/api/leaderboard/delete/:score_id", LeaderboardController.deleteScore);
 }
