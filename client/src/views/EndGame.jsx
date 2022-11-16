@@ -1,12 +1,19 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Leaderboard from "../components/Leaderboard"
 import PlayAgain from "../components/PlayAgain"
-import StatsCard from "../components/ScoreCard"
+import ScoreCard from "../components/ScoreCard"
 
 const EndGame = () => {
+  const [winnerInput, setWinnerInput] = useState(false)
+
+  useEffect(() => {
+    // re-render when winnerInput changes
+  }, [winnerInput])
+  
   return (
     <>
-      <Leaderboard />
+      <Leaderboard setWinnerInput={setWinnerInput}/>
+      <ScoreCard showForm={winnerInput}/>
       <PlayAgain />
     </>
   )

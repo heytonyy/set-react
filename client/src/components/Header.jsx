@@ -7,7 +7,6 @@ const Header = () => {
         <>
             <div className={styles.header}>
                 <p className={styles.headerTitle}>SET</p>
-
             </div>
         </>
     )

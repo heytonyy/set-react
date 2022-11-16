@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+@import './var.css';
 
 /* ~~~~~~~~~~~ */
 /* GLOBAL */
@@ -7,13 +8,43 @@ body {
   font-family: 'Nanum Gothic Coding', monospace;
 }
 
+@media (min-width: 600px) {
+  .wrapper {
+    width: 600px;
+  }
+  .boardHead{
+    font-size: var(--font-md);
+  }
+  .score{
+    font-size: var(--font-md);
+  }
+  .cardTitle{
+    font-size: var(--font-xs);
+  }
+  .validateMsg{
+    font-size: var(--font-xs);
+  }
+  table thead tr{
+    font-size: var(--font-sm);
+  }
+  table tbody tr{
+    font-size: var(--font-xs);
+  }
+  .playAgainBtn{
+    font-size: var(--font-md);
+  }
+  .footer{
+    font-size: var(--font-xs);
+  }
+}
+
 /* ~~~~~~~~~~~ */
 /* BOARD */
 /* ~~~~~~~~~~~ */
 .boardHead {
   justify-content: center;
   background: #eee;
-  padding: 1%;
+  padding: 1.75vw;
   max-width: 100vh;
   margin: 0 20px;
   border-top-left-radius: 10px;
@@ -22,16 +53,16 @@ body {
 
 .boardHead > h2 {
   text-align: center;
-  font-size: 4vw;
-  margin-top: 1vw;
+  font-size: var(--font-md);
   margin-bottom: 2vw;
+  margin-top: 0;
 }
 
 .boardBody {
   display: flex;
   justify-content: center;
   background: #eee;
-  padding: 1%;
+  padding: 1.75vw;
   max-width: 100vh;
   margin: 0 20px;
   text-align: center;
@@ -39,7 +70,7 @@ body {
 
 .boardFoot {
   background: #eee;
-  padding: 1%;
+  padding: 1.75vw;
   max-width: 100vh;
   margin: 0 20px;
   border-bottom-left-radius: 10px;
@@ -56,14 +87,25 @@ body {
   position: relative;
 }
 
-.test {
-  font-size: 6vw;
+.score {
+  font-size: var(--font-md);
+  margin-top: 2vw;
+  margin-bottom: 2vw;
 }
 
 .cardTitle {
   margin-top: 3vw;
   margin-bottom: 3vw;
-  font-size: 2.5vw;
+  font-size: var(--font-xs);
+  font-weight: bold;
+  color: green
+}
+
+.validateMsg {
+  margin-top: 3vw;
+  margin-bottom: 1vw;
+  font-size: var(--font-xs);
+  color: red;
   font-weight: bold;
 }
 
@@ -75,7 +117,7 @@ table {
   border-radius: 6px;
   overflow: hidden;
   max-width: 800px;
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
   position: relative;
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
@@ -89,11 +131,11 @@ table td, table th {
 table thead tr {
   background: dodgerblue;
   color: white;
-  font-size: 3vw;
+  font-size: var(--font-sm);
   text-align: center;
 }
 table tbody tr {
-  font-size: 2.5vw;
+  font-size: var(--font-xs);
   border-bottom: 1px solid #E3F1D5;
   text-align: center;
 
@@ -113,7 +155,7 @@ table tbody tr:last-child {
   border-radius: 10px;
   padding: 2%;
   font-family: 'Nanum Gothic Coding', monospace;
-  font-size: 4vw;
+  font-size: var(--font-md);
 }
 
 /* ~~~~~~~~~~~ */
@@ -127,8 +169,17 @@ form input[type=text] {
   padding: 5%;
   margin-right: 3%;
 }
-form input[type=submit] {
+button {
   background: dodgerblue;
+  border: 1px solid #eee;
+  color: white;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  font-family: 'Nanum Gothic Coding', monospace;
+  padding: 5% 7%;
+}
+button:disabled {
+  background: rgba(30, 144, 255, 0.5);
   border: 1px solid #eee;
   color: white;
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
@@ -149,5 +200,5 @@ form {
   padding: 6px;
   max-width: 100vh;
   margin: 0 20px;
-  font-size: 2vw;
+  font-size: var(--font-xs);
 }

@@ -1,11 +1,26 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styles from "../style/endgame.module.css"
-import ScoreCard from "./ScoreCard"
+import axios from "axios"
+import useGame from "../context/GameContext"
 
-const Leaderboard = () => {
+const Leaderboard = ({ setWinnerInput }) => {
+    const [leaderboard, setLeaderboard] = useState(null)
+    const { score } = useGame()
 
-    // fetch leaderboard from api and fill table
-    // conditionally render the ScoreCard if they made the top 10
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/leaderboard/")
+            .then(res => {
+                const leaderboard = res.data
+                setLeaderboard(leaderboard)
+                // check to see if they are in top 10
+                if (score >= leaderboard[leaderboard.length - 1].score){
+                    setWinnerInput(true)
+                } else {
+                    setWinnerInput(false)
+                }
+            })
+            .catch(err => console.log(err))
+    }, [leaderboard])
 
     return (
         <div className={styles.boardHead}>
@@ -19,14 +34,22 @@ const Leaderboard = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>11-12-22</td>
-                        <td>TA</td>
-                        <td>7</td>
-                    </tr>
+                    {
+                        leaderboard && leaderboard.map((winner, index) => {
+                            const {createdAt, initials, score} = winner
+                            const date = new Date(createdAt)
+                            const smolDate = date.toLocaleDateString()
+                            return (
+                                <tr key={index}>
+                                    <td>{smolDate}</td>
+                                    <td>{initials.toUpperCase()}</td>
+                                    <td>{score}</td>
+                                </tr>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
-            <ScoreCard />
         </div>
     )
 }

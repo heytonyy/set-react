@@ -1,29 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../style/endgame.module.css'
 import useGame from '../context/GameContext'
+import ScoreForm from './ScoreForm'
 
-const ScoreCard = () => {
-    const { score, deck } = useGame()
-    const [initials, setInitials] = useState('')
+const ScoreCard = ({ showForm }) => {
+    const [hasNotSubmited, setHasNotSubmited] = useState(true)
+    const { score } = useGame()
 
-    const formSubmit = (e) => {
-        e.preventDefault()
-    }
-
+    useEffect(() => {
+      // re-render when form submitted
+    }, [hasNotSubmited])
+    
     return (
         <div className={styles.boardBody}>
             <div className={styles.card}>
-                <div className={styles.test}>
+                <div className={styles.score}>
                     Sets: {score}
                 </div>
-                <div className={styles.cardTitle}>
-                    You made it to the leaderbord!
-                </div>
-                {/* FORM */}
-                <form onSubmit={formSubmit}>
-                    <input onChange={(e) => setInitials(e.target.value)} value={initials} type="text" id="initials" placeholder="Initials"></input>
-                    <input type="submit" value="Add" />
-                </form>
+                {
+                    (showForm && hasNotSubmited) && <ScoreForm setHasNotSubmited={setHasNotSubmited}/>
+                }
             </div>
         </div>
     )

@@ -71,6 +71,7 @@ export const GameProvider = ({ children }) => {
         let newMessage = state.message
         const ogScore = state.score // to calc diff
         let newScore = state.score
+        let newMessageColor = state.messageColor
         const failed = []
         // check for failed set properties
         if (setTest(newSelected, 'number')) {
@@ -88,14 +89,17 @@ export const GameProvider = ({ children }) => {
         if (failed.length === 0) {
             newScore++
             newMessage += `Great job! That's a set!`
+            newMessageColor = true
         } else {
             newMessage += `FAILED THE FOLLOWING: ${failed}`
+            newMessageColor = false
         }
         dispatch({
             type: 'CHECK_FOR_SET',
             payload: {
                 score: newScore,
                 message: newMessage,
+                messageColor: newMessageColor
             }
         })
         // 2 second delay
@@ -166,6 +170,7 @@ export const GameProvider = ({ children }) => {
         selectedCards: state.selectedCards,
         score: state.score,
         message: state.message,
+        messageColor: state.messageColor,
         toggleStart,
         sorryGameOver,
         loadDeck,

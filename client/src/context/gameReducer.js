@@ -5,7 +5,8 @@ export const initialState = {
     boardCards: [],
     selectedCards: [],
     score: 0,
-    message: ''
+    message: '',
+    messageColor: false,
 }
 
 export const gameReducer = (state, action) => {
@@ -48,7 +49,8 @@ export const gameReducer = (state, action) => {
             return {
                 ...state,
                 score: payload.score,
-                message: payload.message
+                message: payload.message,
+                messageColor: payload.messageColor
             }
         }
         case 'UPDATE_BOARD': {
@@ -57,7 +59,8 @@ export const gameReducer = (state, action) => {
                 deck: payload.deck,
                 selectedCards: payload.selectedCards,
                 boardCards: payload.boardCards,
-                message: payload.message
+                message: payload.message,
+                messageColor: payload.messageColor
             }
         }
         default: {

@@ -1,10 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+@import './var.css';
 
 /* ~~~~~~~~~~~ */
 /* GLOBAL */
 /* ~~~~~~~~~~~ */
 body {
   font-family: 'Nanum Gothic Coding', monospace;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    width: 600px;
+  }
+  .headerTitle{
+    font-size: var(--font-xl);
+  }
+  .menu{
+    font-size: var(--font-md);
+  }
+  .menuBtn{
+    font-size: var(--font-lg);
+  }
+  .menuItem>strong{
+    font-size: var(--font-lg);
+  }
+  .message{
+    font-size: var(--font-md);
+  }
+  .footer{
+    font-size: var(--font-sm);
+  }
+  .rules{
+    font-size: var(--font-sm);
+  }
 }
 
 /* ~~~~~~~~~~~ */
@@ -19,7 +52,7 @@ body {
 }
 
 .headerTitle {
-  font-size: 15vw;
+  font-size: var(--font-xl);
   font-weight: bolder;
   margin: 0;
   padding: 0;
@@ -38,7 +71,7 @@ body {
   background: #eee;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  font-size: 4vw;
+  font-size: var(--font-md);
 }
 
 .menuBtn {
@@ -49,7 +82,7 @@ body {
   border-radius: 10px;
   padding: 2%;
   font-family: 'Nanum Gothic Coding', monospace;
-  font-size: 5vw;
+  font-size: var(--font-lg);
 }
 
 .menuItem {
@@ -75,8 +108,9 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .menuItem>strong {
-  font-size: 5vw;
+  font-size: var(--font-lg);
 }
 
 /* ~~~~~~~~~~~ */
@@ -130,6 +164,14 @@ svg {
   box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2), inset 0 0 5px 1px black;
 }
 
+.selectedDanger {
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2), inset 0 0 5px 1px red;
+}
+
+.selectedSuccess {
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2), inset 0 0 5px 1px green;
+}
+
 .message {
   background: #eee;
   text-align: center;
@@ -138,10 +180,7 @@ svg {
   padding: 1%;
   font-weight: bold;
   padding-top: 1vw;
-}
-
-.message > span {
-  font-size: 3.5vw;
+  font-size: var(--font-md);
 }
 
 /* ~~~~~~~~~~~ */
@@ -153,7 +192,7 @@ svg {
   padding: 6px;
   max-width: 100vh;
   margin: 0 20px;
-  font-size: 2vw;
+  font-size: var(--font-sm);
 }
 
 /* ~~~~~~~~~~~ */
@@ -162,7 +201,7 @@ svg {
 .rules {
   max-width: 100vh;
   margin: 0 20px;
-  font-size: 3vw;
+  font-size: var(--font-sm);
 }
 
 .boldUnder {

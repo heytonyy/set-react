@@ -4,7 +4,7 @@ import styles from "../style/game.module.css"
 import useGame from "../context/GameContext"
 
 const Board = () => {
-    const { gameStart, boardCards, selectedCards, message, updateBoard } = useGame()
+    const { gameStart, boardCards, selectedCards, message, updateBoard, messageColor } = useGame()
 
     // every time selectedCards changes, check for set if selectedCards is three
     useEffect(() => {
@@ -15,8 +15,8 @@ const Board = () => {
     
     return (
         <>
-            <div className={styles.message}>
-                <span>{message}</span>
+            <div className={`${messageColor ? styles.success : styles.danger} ${styles.message}`}>
+                {message}
             </div>
             <div className={styles.board}>
                 <br />

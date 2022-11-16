@@ -4,6 +4,7 @@ import EndGame from "./EndGame"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import Rules from "../components/Rules"
+import Wrapper from "./Wrapper"
 import { GameProvider } from "../context/GameContext"
 
 const Main = () => {
@@ -11,7 +12,7 @@ const Main = () => {
   const [showEndGame, setShowEndGame] = useState(false)
 
   return (
-    <>
+    <Wrapper>
       <Header />
       <GameProvider>
         {
@@ -25,7 +26,7 @@ const Main = () => {
           </>
         }
       </GameProvider>
-    </>
+    </Wrapper>
   )
 }
 

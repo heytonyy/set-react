@@ -13,7 +13,7 @@ app.use(cors())
 require('./config/mongoose.config')
 
 //ROUTES
-require('./routes/user.routes')(app)  //what is this (app) doing?
+require('./routes/leaderboard.routes')(app)  //what is this (app) doing?
 require('./routes/card.routes')(app)
 
 //START APP

@@ -1,0 +1,10 @@
+/* CSS VARIABLES */
+/* FOR RESPONSIVE LAYOUT */
+
+:root {
+    --font-xs: 2vw;
+    --font-sm: 3.5vw;
+    --font-md: 4vw;
+    --font-ld: 5vw;
+    --font-xl: 15vw;
+}
