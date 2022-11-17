@@ -1,4 +1,4 @@
-const { Card } = require('../models/card.model')
+const { Card } = require("../models/card.model")
 
 // read all
 module.exports.getAllCards = (req, res) => {

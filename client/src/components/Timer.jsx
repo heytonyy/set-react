@@ -15,8 +15,8 @@ const Timer = () => {
   const [timerSeconds, settimerSeconds] = useState(0)
   const { sorryGameOver } = useGame()
   
-  const startMinutes = 1
-  const MINS_IN_MS = startMinutes * 10 * 1000 + 1000 // have to add 1 extra second?
+  const startMinutes = 10
+  const MINS_IN_MS = startMinutes * 60 * 1000 + 1000 // have to add 1 extra second?
   const NOW_IN_MS = new Date().getTime();
   const TARGET_TIME = NOW_IN_MS + MINS_IN_MS;
 
@@ -71,5 +71,3 @@ const Timer = () => {
 }
 
 export default Timer
-
-// For ref: https://www.youtube.com/watch?v=ZVOGPvo08zM

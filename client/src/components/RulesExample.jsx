@@ -3,7 +3,6 @@ import styles from "../style/game.module.css"
 import ShapeSVG from "./ShapeSVG"
 
 const RulesExample = ({ card }) => {
-
     return (
         <div className={styles.card}>
             {/* div overlay with z-index=1, since below is a composite element */}

@@ -1,41 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 @import './var.css';
 
 /* ~~~~~~~~~~~ */
 /* GLOBAL */
 /* ~~~~~~~~~~~ */
 body {
-  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Fira Code', monospace;
 }
 
-@media (min-width: 600px) {
-  .wrapper {
-    width: 600px;
-  }
-  .boardHead{
-    font-size: var(--font-md);
-  }
-  .score{
-    font-size: var(--font-md);
-  }
-  .cardTitle{
-    font-size: var(--font-xs);
-  }
-  .validateMsg{
-    font-size: var(--font-xs);
-  }
-  table thead tr{
-    font-size: var(--font-sm);
-  }
-  table tbody tr{
-    font-size: var(--font-xs);
-  }
-  .playAgainBtn{
-    font-size: var(--font-md);
-  }
-  .footer{
-    font-size: var(--font-xs);
-  }
+.gameWrapper {
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* ~~~~~~~~~~~ */
@@ -44,38 +19,78 @@ body {
 .boardHead {
   justify-content: center;
   background: #eee;
-  padding: 1.75vw;
+  padding: 2%;
   max-width: 100vh;
   margin: 0 20px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.boardHead > h2 {
+.boardHead>h2 {
   text-align: center;
-  font-size: var(--font-md);
-  margin-bottom: 2vw;
-  margin-top: 0;
+  padding: 2%;
+  margin: 0;
+  color: #000;
 }
 
 .boardBody {
   display: flex;
   justify-content: center;
   background: #eee;
-  padding: 1.75vw;
+  padding: 2%;
   max-width: 100vh;
-  margin: 0 20px;
+  margin: -1px 20px;
   text-align: center;
 }
 
 .boardFoot {
   background: #eee;
-  padding: 1.75vw;
+  padding: 2%;
   max-width: 100vh;
-  margin: 0 20px;
+  margin: -1px 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   text-align: center;
+}
+
+/* LEADERBOARD */
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+  color: #000;
+}
+
+table * {
+  position: relative;
+}
+
+table td,
+table th {
+  padding: 2% 4%;
+}
+
+table thead tr {
+  background: dodgerblue;
+  color: white;
+  text-align: center;
+  width: 100%
+}
+
+table tbody tr {
+  border-bottom: 1px solid #E3F1D5;
+  text-align: center;
+}
+
+table tbody tr:last-child {
+  border: 0;
 }
 
 .card {
@@ -88,60 +103,23 @@ body {
 }
 
 .score {
-  font-size: var(--font-md);
-  margin-top: 2vw;
-  margin-bottom: 2vw;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: #000;
 }
 
 .cardTitle {
-  margin-top: 3vw;
-  margin-bottom: 3vw;
-  font-size: var(--font-xs);
+  margin-top: 5%;
+  margin-bottom: 5%;
   font-weight: bold;
   color: green
 }
 
 .validateMsg {
-  margin-top: 3vw;
-  margin-bottom: 1vw;
-  font-size: var(--font-xs);
+  margin-top: 5%;
+  margin-bottom: 5%;
   color: red;
   font-weight: bold;
-}
-
-/* LEADERBOARD */
-table {
-  border-spacing: 1;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 6px;
-  overflow: hidden;
-  max-width: 800px;
-  width: 50%;
-  margin: 0 auto;
-  position: relative;
-  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
-}
-table * {
-  position: relative;
-}
-table td, table th {
-  padding: 10px;
-}
-table thead tr {
-  background: dodgerblue;
-  color: white;
-  font-size: var(--font-sm);
-  text-align: center;
-}
-table tbody tr {
-  font-size: var(--font-xs);
-  border-bottom: 1px solid #E3F1D5;
-  text-align: center;
-
-}
-table tbody tr:last-child {
-  border: 0;
 }
 
 /* ~~~~~~~~~~~ */
@@ -155,7 +133,6 @@ table tbody tr:last-child {
   border-radius: 10px;
   padding: 2%;
   font-family: 'Nanum Gothic Coding', monospace;
-  font-size: var(--font-md);
 }
 
 /* ~~~~~~~~~~~ */
@@ -169,6 +146,7 @@ form input[type=text] {
   padding: 5%;
   margin-right: 3%;
 }
+
 button {
   background: dodgerblue;
   border: 1px solid #eee;
@@ -178,6 +156,7 @@ button {
   font-family: 'Nanum Gothic Coding', monospace;
   padding: 5% 7%;
 }
+
 button:disabled {
   background: rgba(30, 144, 255, 0.5);
   border: 1px solid #eee;
@@ -187,6 +166,7 @@ button:disabled {
   font-family: 'Nanum Gothic Coding', monospace;
   padding: 5% 7%;
 }
+
 form {
   margin-bottom: 5%;
 }
@@ -200,5 +180,93 @@ form {
   padding: 6px;
   max-width: 100vh;
   margin: 0 20px;
-  font-size: var(--font-xs);
+}
+
+/* ~~~~~~~~~~~ */
+/* MEDIA QUERIES */
+/* ~~~~~~~~~~~ */
+@media (min-width: 500px) {
+  .gameWrapper {
+    width: 500px;
+  }
+
+  .boardHead {
+    font-size: 15px;
+  }
+
+  .score {
+    font-size: 20px;
+  }
+
+  .cardTitle {
+    font-size: 10px;
+  }
+
+  .validateMsg {
+    font-size: 8px;
+  }
+
+  table thead tr {
+    font-size: 15px;
+  }
+
+  table tbody tr {
+    font-size: 15px;
+  }
+
+  .playAgainBtn {
+    font-size: 20px;
+  }
+
+  .footer {
+    font-size: 10px;
+  }
+
+  ::placeholder {
+    font-size: 10px;
+  }
+  button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .boardHead {
+    font-size: var(--font-3);
+  }
+
+  .score {
+    font-size: var(--font-md);
+  }
+
+  .cardTitle {
+    font-size: var(--font-xs);
+  }
+
+  .validateMsg {
+    font-size: var(--font-1half);
+  }
+
+  table thead tr {
+    font-size: var(--font-3);
+  }
+
+  table tbody tr {
+    font-size: var(--font-3);
+  }
+
+  .playAgainBtn {
+    font-size: var(--font-md);
+  }
+
+  .footer {
+    font-size: var(--font-xs);
+  }
+
+  ::placeholder {
+    font-size: var(--font-xs);
+  }
+  button {
+    font-size: var(--font-3);
+  }
 }

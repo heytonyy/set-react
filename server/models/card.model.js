@@ -1,5 +1,5 @@
 // import mongoose
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 
 const CardSchema = new mongoose.Schema({
     number: {
@@ -16,4 +16,4 @@ const CardSchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
-module.exports.Card = mongoose.model('Card', CardSchema)
+module.exports.Card = mongoose.model("Card", CardSchema)

@@ -3,6 +3,7 @@ import BoardMenu from "../components/BoardMenu"
 import LoadDeck from "../components/LoadDeck"
 import Board from "../components/Board"
 import useGame from "../context/GameContext"
+import "../style/var.css"
 
 const Game = ({ setShowEndGame }) => {
   const { gameOver } = useGame()

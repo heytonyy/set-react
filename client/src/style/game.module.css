@@ -1,43 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 @import './var.css';
 
 /* ~~~~~~~~~~~ */
 /* GLOBAL */
 /* ~~~~~~~~~~~ */
 body {
-  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Fira Code', monospace;
 }
 
-.wrapper {
+.gameWrapper {
   width: 100%;
   margin: 0 auto;
 }
 
-@media (min-width: 600px) {
-  .wrapper {
-    width: 600px;
-  }
-  .headerTitle{
-    font-size: var(--font-xl);
-  }
-  .menu{
-    font-size: var(--font-md);
-  }
-  .menuBtn{
-    font-size: var(--font-lg);
-  }
-  .menuItem>strong{
-    font-size: var(--font-lg);
-  }
-  .message{
-    font-size: var(--font-md);
-  }
-  .footer{
-    font-size: var(--font-sm);
-  }
-  .rules{
-    font-size: var(--font-sm);
-  }
+.rulesWrapper {
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* ~~~~~~~~~~~ */
@@ -45,17 +23,23 @@ body {
 /* ~~~~~~~~~~~ */
 .header {
   display: flex;
-  flex-flow: row wrap;
-  padding: 6px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
   max-width: 100vh;
   margin: 0 20px;
 }
 
 .headerTitle {
-  font-size: var(--font-xl);
   font-weight: bolder;
   margin: 0;
   padding: 0;
+}
+
+.themeBtn {
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 /* ~~~~~~~~~~~ */
@@ -71,7 +55,6 @@ body {
   background: #eee;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  font-size: var(--font-md);
 }
 
 .menuBtn {
@@ -81,8 +64,6 @@ body {
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   padding: 2%;
-  font-family: 'Nanum Gothic Coding', monospace;
-  font-size: var(--font-lg);
 }
 
 .menuItem {
@@ -100,17 +81,9 @@ body {
   color: green;
 }
 
-.default {
-  color: black;
-}
-
 .menuItem>p {
   margin: 0;
   padding: 0;
-}
-
-.menuItem>strong {
-  font-size: var(--font-lg);
 }
 
 /* ~~~~~~~~~~~ */
@@ -120,15 +93,15 @@ body {
   display: flex;
   flex-flow: row wrap;
   background: #eee;
-  padding: 1%;
+  padding: 5px;
   max-width: 100vh;
-  margin: 0 20px;
+  margin: -1px 20px 0px 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
 .card {
-  margin: 5px;
+  margin: 1.11%;
   width: calc(33.33% - 10px);
   padding-top: 20%;
   background: #fff;
@@ -161,26 +134,18 @@ svg {
 }
 
 .selected {
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2), inset 0 0 5px 1px black;
-}
-
-.selectedDanger {
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2), inset 0 0 5px 1px red;
-}
-
-.selectedSuccess {
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2), inset 0 0 5px 1px green;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2), inset 0 0 5px 1px dodgerblue;
 }
 
 .message {
   background: #eee;
   text-align: center;
   max-width: 100vh;
-  margin: 0 20px;
+  margin: -1px 20px 0px 20px;
   padding: 1%;
   font-weight: bold;
-  padding-top: 1vw;
-  font-size: var(--font-md);
+  padding-top: 1%;
+  border-color: rgba(0, 0, 0, 0);
 }
 
 /* ~~~~~~~~~~~ */
@@ -192,7 +157,6 @@ svg {
   padding: 6px;
   max-width: 100vh;
   margin: 0 20px;
-  font-size: var(--font-sm);
 }
 
 /* ~~~~~~~~~~~ */
@@ -200,20 +164,110 @@ svg {
 /* ~~~~~~~~~~~ */
 .rules {
   max-width: 100vh;
-  margin: 0 20px;
-  font-size: var(--font-sm);
+  margin: 0 auto;
 }
 
-.boldUnder {
-  font-weight: bold;
+.rules strong {
+  color: dodgerblue;
   text-decoration: underline;
 }
 
 .exampleBoard {
   display: flex;
   background: #eee;
-  padding: 6px;
+  padding: 1%;
   max-width: 100vh;
   margin: 0 20px;
   border-radius: 10px;
+}
+
+/* ~~~~~~~~~~~ */
+/* MEDIA QUERIES */
+/* ~~~~~~~~~~~ */
+@media (min-width: 800px) {
+  .rulesWrapper {
+    width: 800px;
+  }
+
+  .rules {
+    font-size: 18px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .rules {
+    font-size: var(--font-rules);
+  }
+
+  ul {
+    padding-left: var(--font-md);
+  }
+}
+
+@media (min-width: 500px) {
+  .gameWrapper {
+    width: 500px;
+  }
+
+  .headerTitle {
+    font-size: 75px;
+  }
+
+  .themeBtn {
+    font-size: 50px;
+  }
+
+  .menu {
+    font-size: 18px;
+  }
+
+  .menuBtn {
+    font-size: 20px;
+  }
+
+  .menuItem>strong {
+    font-size: 20px;
+  }
+
+  .message {
+    font-size: 15px;
+  }
+
+  .footer {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .headerTitle {
+    font-size: var(--font-xl);
+  }
+
+  .themeBtn {
+    font-size: var(--font-theme);
+  }
+
+  .menu {
+    font-size: var(--font-sm);
+  }
+
+  .menuBtn {
+    font-size: var(--font-md);
+  }
+
+  .menuItem>strong {
+    font-size: var(--font-md);
+  }
+
+  .message {
+    font-size: var(--font-3);
+  }
+
+  .footer {
+    font-size: var(--font-xs);
+  }
 }

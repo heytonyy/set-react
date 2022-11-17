@@ -12,7 +12,7 @@ const Card = ({ card }) => {
     const [deckCheck, setDeckCheck] = useState(deck.length) // used to clear isActive when board is reset
 
     useEffect(() => {
-        // 2 sec delay to match up with updateBoard --> clears isActive
+        // 1.5 sec delay to match up with updateBoard --> clears isActive
         if (selectedCards.length === 3) {
             setBlinking(isActive) // turn on blinking
             setTimeout(()=> {
@@ -20,7 +20,7 @@ const Card = ({ card }) => {
                     setActive(false)
                     setBlinking(false) // turn off blinking
                 }
-            }, 2000)
+            }, 1500)
         }
         // true if board was reset --> clears isActive
         if (deckCheck > deck.length) {

@@ -12,8 +12,8 @@ const Leaderboard = ({ setWinnerInput }) => {
             .then(res => {
                 const leaderboard = res.data
                 setLeaderboard(leaderboard)
-                // check to see if they are in top 10
-                if (score >= leaderboard[leaderboard.length - 1].score){
+                // check to see if they are in top 8
+                if (score > leaderboard[leaderboard.length - 1].score){
                     setWinnerInput(true)
                 } else {
                     setWinnerInput(false)
@@ -28,9 +28,9 @@ const Leaderboard = ({ setWinnerInput }) => {
             <table>
                 <thead>
                     <tr>
-                        <th>Date</th>
                         <th>Initials</th>
                         <th>Sets</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,9 +41,9 @@ const Leaderboard = ({ setWinnerInput }) => {
                             const smolDate = date.toLocaleDateString()
                             return (
                                 <tr key={index}>
-                                    <td>{smolDate}</td>
                                     <td>{initials.toUpperCase()}</td>
                                     <td>{score}</td>
+                                    <td>{smolDate}</td>
                                 </tr>
                             )
                         })

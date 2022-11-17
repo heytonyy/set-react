@@ -4,7 +4,7 @@ import Timer from "./Timer"
 import useGame from "../context/GameContext"
 
 const BoardMenu = () => {
-  const { gameStart, gameOver, deck, score, setBoard, toggleStart, sorryGameOver } = useGame()
+  const { gameStart, deck, score, setBoard, toggleStart, sorryGameOver } = useGame()
 
   const startGame = () => {
     toggleStart()
@@ -24,7 +24,7 @@ const BoardMenu = () => {
     <div className={styles.menu}>
       {/* GAME BUTTON -- conditionally rendered based off gameStart */}
       {
-        (gameStart && !gameOver) ? <button onClick={drawFromDeck} className={styles.menuBtn}>New Board</button>
+        gameStart ? <button onClick={drawFromDeck} className={styles.menuBtn}>New Board</button>
           : <button onClick={startGame} className={styles.menuBtn}>Start</button>
       }
 
@@ -38,7 +38,7 @@ const BoardMenu = () => {
       <div className={styles.menuItem}>
         <strong>Time</strong>
         {
-          (gameStart && !gameOver) ? <Timer /> : <p>10:00</p>
+          gameStart ? <Timer /> : <p>10:00</p>
         }
       </div>
 

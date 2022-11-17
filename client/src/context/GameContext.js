@@ -91,7 +91,7 @@ export const GameProvider = ({ children }) => {
             newMessage += `Great job! That's a set!`
             newMessageColor = true
         } else {
-            newMessage += `FAILED THE FOLLOWING: ${failed}`
+            newMessage += `CONDITIONS FAILED: ${failed}`
             newMessageColor = false
         }
         dispatch({
@@ -102,7 +102,7 @@ export const GameProvider = ({ children }) => {
                 messageColor: newMessageColor
             }
         })
-        // 2 second delay
+        // 1.5 second delay
         setTimeout(() => {
             let newBoard = state.boardCards
             let newDeck = state.deck
@@ -125,8 +125,9 @@ export const GameProvider = ({ children }) => {
                     message: ''
                 }
             })
-        }, 2000)
+        }, 1500)
     }
+
     // returns a string of the prop(s) that dont pass the set test, returns false if passed
     const setTest = (cards, prop) => {
         const propArr = [cards[0][prop], cards[1][prop], cards[2][prop]]
@@ -148,19 +149,20 @@ export const GameProvider = ({ children }) => {
         }
         return false
     }
-        // shuffle algorithm
-        const shuffle = (array) => {
-            let currentIndex = array.length, randomIndex
-            // while there remain elements to shuffle.
-            while (currentIndex !== 0) {
-                // pick a remaining element.
-                randomIndex = Math.floor(Math.random() * currentIndex)
-                currentIndex--
-                // swap it with the current element.
-                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
-            }
-            return array
+
+    // shuffle algorithm
+    const shuffle = (array) => {
+        let currentIndex = array.length, randomIndex
+        // while there remain elements to shuffle.
+        while (currentIndex !== 0) {
+            // pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex)
+            currentIndex--
+            // swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
         }
+        return array
+    }
 
     const gameControls = {
         gameStart: state.gameStart,
@@ -196,9 +198,3 @@ const useGame = () => {
 }
 
 export default useGame
-
-
-
-
-
-// Inpiration - https://www.youtube.com/watch?v=awGFsGc9oCM

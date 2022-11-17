@@ -39,18 +39,14 @@ const Rules = () => {
 
   return (
     <div className={styles.rules}>
-      <p> <strong>Rules</strong>:</p>
+      <h2> <strong>Rules</strong>:</h2>
       <p>The objective of the game is to find a <strong>set</strong> of cards.</p>
       <p>A <strong>set</strong> consists of three cards satisfying all of these conditions:</p>
       <ul>
         <li>They all have the <strong>same</strong> number of shapes or have <strong>three different</strong> number of shapes.</li>
-        {/* <li className={styles.nobullets}>(1-3)</li> */}
         <li>They all have the <strong>same</strong> shape or have <strong>three different</strong> shapes.</li>
-        {/* <li className={styles.nobullets}>(diamond, squiggle, oval)</li> */}
         <li>They all have the <strong>same</strong> fill or have <strong>three different</strong> fills.</li>
-        {/* <li className={styles.nobullets}>(striped, solid, open)</li> */}
         <li>They all have the <strong>same</strong> color or have <strong>three different</strong> colors.</li>
-        {/* <li className={styles.nobullets}>(red, green, purple)</li> */}
       </ul>
       <p>The following is an example of a set:</p>
 

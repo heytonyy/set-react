@@ -1,4 +1,4 @@
-const LeaderboardController = require('../controllers/leaderboard.controllers')
+const LeaderboardController = require("../controllers/leaderboard.controllers")
 
 module.exports = app => {
     // create

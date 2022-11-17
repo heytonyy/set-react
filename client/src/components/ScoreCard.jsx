@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import styles from '../style/endgame.module.css'
-import useGame from '../context/GameContext'
-import ScoreForm from './ScoreForm'
+import React, { useState, useEffect } from "react"
+import styles from "../style/endgame.module.css"
+import useGame from "../context/GameContext"
+import ScoreForm from "./ScoreForm"
 
 const ScoreCard = ({ showForm }) => {
     const [hasNotSubmited, setHasNotSubmited] = useState(true)
@@ -18,7 +18,7 @@ const ScoreCard = ({ showForm }) => {
                     Sets: {score}
                 </div>
                 {
-                    (showForm && hasNotSubmited) && <ScoreForm setHasNotSubmited={setHasNotSubmited}/>
+                    (showForm && hasNotSubmited) && <ScoreForm setHasNotSubmited={setHasNotSubmited} />
                 }
             </div>
         </div>

@@ -9,17 +9,12 @@ I've always had a huge love for any sort of puzzle / problem / riddle / quirky-l
 <br>
 
 TODO:
-1. (FINISHED) Refactor game and have useContext for all Game data (deck, boarCards, score, selected cards)
-2. (FINISHED) Refactor and utilize useReducer to have switch cases for all the different actions of the gameContext
-3. (FINISHED?) Make sure it works
-4. (FINISHED?) Add more CSS style the selected cards when checking for set/CSS (blinking?) (red/green)
-5. LEADERBOARD Component
-    - Make scoreboard schema in mongodb
-    - score: 3 initials (validate only 3, make caps)
-    - should be an array of obj (initials, score)
-    - only display top 10?
-    - only add initials if beats the top 10
-    - STRECH GOAL: button post to FB/twitter "I just played Set and got a score of: {score}. Play at <"this link">" or maybe a copy pasta box
+1. Deploy
+2. Domain Name
+Other Ideas:
+    - button to post to FB/twitter "I just played Set and got a score of: {score}. Play at <"this link">". Look up Twitter Intent API
+    - Make other fun 2D games
+    - Build an app with all the 2D games --> Like Foony
 
 <br>
 
