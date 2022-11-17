@@ -11,7 +11,7 @@ I've always had a huge love for any sort of puzzle / problem / riddle / quirky-l
 TODO:
 1. Deploy
 2. Domain Name
-Other Ideas:
+3. Other Ideas:
     - button to post to FB/twitter "I just played Set and got a score of: {score}. Play at <"this link">". Look up Twitter Intent API
     - Make other fun 2D games
     - Build an app with all the 2D games --> Like Foony
