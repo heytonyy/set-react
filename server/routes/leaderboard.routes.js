@@ -5,5 +5,4 @@ module.exports = app => {
     app.post("/api/leaderboard/new", LeaderboardController.addToLeaderboard);
     // read all
     app.get("/api/leaderboard/", LeaderboardController.getLeaderboards);
- 
 }
