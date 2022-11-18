@@ -5,6 +5,5 @@ module.exports = app => {
     app.post("/api/leaderboard/new", LeaderboardController.addToLeaderboard);
     // read all
     app.get("/api/leaderboard/", LeaderboardController.getLeaderboards);
-    // delete
-    app.delete("/api/leaderboard/delete/:score_id", LeaderboardController.deleteScore);
+ 
 }

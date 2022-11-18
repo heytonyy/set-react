@@ -13,10 +13,5 @@ module.exports.getLeaderboards = (req, res) => {
         .then(results => res.json(results))
         .catch(err => res.json(err))
 }
-// delete one
-module.exports.deleteScore = (req, res) => {
-    Leaderboard.deleteOne({ _id: req.params.score_id })
-        .then(results => res.json(results))
-        .catch(err => res.json(err))
-}
+
 
