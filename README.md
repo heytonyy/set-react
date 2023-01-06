@@ -13,7 +13,7 @@ I've always had a huge love for any sort of puzzle / problem / riddle / quirky-l
 ## Video Demo
 (click on the image to go to the youtube video):
 
-[![Watch the video](https://img.youtube.com/vi/GdWlzwk8B3w/maxresdefault.jpg)](https://youtu.be/GdWlzwk8B3w)
+[![Watch the video](https://img.youtube.com/vi/fEQ0GwEFFxQ/maxresdefault.jpg)](https://youtu.be/fEQ0GwEFFxQ)
 
 ## TODO:
 1. Domain Name
